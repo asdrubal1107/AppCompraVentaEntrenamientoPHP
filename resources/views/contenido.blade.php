@@ -2,11 +2,11 @@
 
 @section('contenido')
 <template v-if="menu==0">
-    <example-component></example-component>
+    <h1>Soy el escritorio</h1>
 </template>
 
 <template v-if="menu==1">
-    <h1>Contenido del menu 1</h1>
+    <categoria-component></categoria-component>
 </template>
 
 <template v-if="menu==2">
