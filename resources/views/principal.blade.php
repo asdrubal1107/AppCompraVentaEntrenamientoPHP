@@ -9,7 +9,7 @@
     <meta name="author" content="Incanatoit.com">
     <meta name="keyword" content="Sistema ventas Laravel Vue Js, Sistema compras Laravel Vue Js">
     <link rel="shortcut icon" href="vendors/img/favicon.png">
-    <title>Sistema Ventas - IncanatoIT</title>
+    <title>Sistema facturacion</title>
     <!-- Icons -->
     <link href="vendors/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendors/css/simple-line-icons.min.css" rel="stylesheet">
@@ -44,6 +44,8 @@
     <script src="vendors/js/Chart.min.js"></script>
     <!-- GenesisUI main scripts -->
     <script src="vendors/js/template.js"></script>
+    <!-- Sweet alert -->
+    <script src="vendors/js/sweetalert2.js"></script>
 </body>
 
 </html>

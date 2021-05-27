@@ -1,4 +1,4 @@
 <footer class="app-footer">
-    <span><a href="http://www.incanatoit.com/">IncanatoIT</a> &copy; 2017</span>
-    <span class="ml-auto">Desarrollado por <a href="http://www.incanatoit.com/">IncanatoIT</a></span>
+    <span><a href="#">EntrenamientoPHP</a> &copy; 2021</span>
+    <span class="ml-auto">Desarrollado por EntrenamientoPHP</a></span>
 </footer>
