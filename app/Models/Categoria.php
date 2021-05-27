@@ -10,4 +10,9 @@ class Categoria extends Model
     use HasFactory;
 
     protected $filiable = ['nombre', 'descripcion', 'condicion'];
+
+    public function articulos()
+    {
+        return $this->hasMany('App\Models\Articulo');
+    }
 }

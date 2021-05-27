@@ -33,6 +33,14 @@ class CategoriaController extends Controller
         ];
     }
 
+    public function selectCategoria(Request $request)
+    {
+        if (!$request->ajax()) return redirect('/');
+        $categorias = Categoria::where('condicion', '=', '1')
+            ->select('id', 'nombre')->orderBy('nombre', 'asc')->get();
+        return ['categorias' => $categorias];
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -56,7 +64,7 @@ class CategoriaController extends Controller
         $categoria->nombre = $request->nombre;
         $categoria->descripcion = $request->descripcion;
         $categoria->condicion = '1';
-        $categoria->save();
+        $categoria->update();
     }
 
     public function activar(Request $request)
@@ -64,7 +72,7 @@ class CategoriaController extends Controller
         if (!$request->ajax()) return redirect('/');
         $categoria = Categoria::findOrFail($request->id);
         $categoria->condicion = '1';
-        $categoria->save();
+        $categoria->update();
     }
 
     public function desactivar(Request $request)
@@ -72,6 +80,6 @@ class CategoriaController extends Controller
         if (!$request->ajax()) return redirect('/');
         $categoria = Categoria::findOrFail($request->id);
         $categoria->condicion = '0';
-        $categoria->save();
+        $categoria->update();
     }
 }
