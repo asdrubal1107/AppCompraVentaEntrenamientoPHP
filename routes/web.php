@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ArticuloController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +39,20 @@ Route::post('/articulos/registrar', [ArticuloController::class, 'store']);
 Route::put('/articulos/actualizar', [ArticuloController::class, 'update']);
 Route::put('/articulos/activar', [ArticuloController::class, 'activar']);
 Route::put('/articulos/desactivar', [ArticuloController::class, 'desactivar']);
+
+Route::get('/clientes', [ClienteController::class, 'index']);
+Route::post('/clientes/registrar', [ClienteController::class, 'store']);
+Route::put('/clientes/actualizar', [ClienteController::class, 'update']);
+
+Route::get('/proveedores', [ProveedorController::class, 'index']);
+Route::post('/proveedores/registrar', [ProveedorController::class, 'store']);
+Route::put('/proveedores/actualizar', [ProveedorController::class, 'update']);
+
+Route::get('/roles', [RolController::class, 'index']);
+Route::get('/roles/selectRol', [RolController::class, 'selectRol']);
+
+Route::get('/usuarios', [UserController::class, 'index']);
+Route::post('/usuarios/registrar', [UserController::class, 'store']);
+Route::put('/usuarios/actualizar', [UserController::class, 'update']);
+Route::put('/usuarios/activar', [UserController::class, 'activar']);
+Route::put('/usuarios/desactivar', [UserController::class, 'desactivar']);

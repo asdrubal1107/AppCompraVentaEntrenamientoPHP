@@ -22,6 +22,10 @@ window.Vue = require('vue').default;
 // Vue.component('categoria-component', require('./components/CategoriaComponent.vue').default);
 Vue.component('categoria-component', require('./components/CategoriaComponent.vue').default);
 Vue.component('articulo-component', require('./components/ArticuloComponent.vue').default);
+Vue.component('cliente-component', require('./components/ClienteComponent.vue').default);
+Vue.component('proveedor-component', require('./components/ProveedorComponent.vue').default);
+Vue.component('rol-component', require('./components/RolComponent.vue').default);
+Vue.component('usuario-component', require('./components/UsuarioComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,6 +36,6 @@ Vue.component('articulo-component', require('./components/ArticuloComponent.vue'
 const app = new Vue({
     el: '#app',
     data : {
-        menu: 2 //Valor defecto a cargar
+        menu: 7 //Valor defecto a cargar
     }
 });
