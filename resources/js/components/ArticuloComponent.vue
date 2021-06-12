@@ -11,7 +11,10 @@
           <i class="fa fa-align-justify"></i> Articulos
           <button type="button" class="btn btn-secondary" @click="AbrirModal('articulo', 'registrar')">
             <i class="icon-plus"></i>&nbsp;Nuevo
-          </button> <!-- HASTA ACA HE ACTUALIZADO -->
+          </button>
+          <button type="button" class="btn btn-info" @click="CargarPDF()">
+            <i class="icon-doc"></i>&nbsp;Reporte
+          </button>
         </div>
         <div class="card-body">
           <div class="form-group row">
@@ -312,6 +315,10 @@ export default {
     })
     },
 
+    CargarPDF(){
+      window.open('http://localhost:8000/articulos/listarPDF', 'blank');
+    },
+
     ActivarArticulo(id){
     Swal.fire({
       title: '¿Esta seguro de activar este articulo?',
@@ -462,7 +469,6 @@ export default {
 
   mounted() {
     this.ListarArticulos(1, this.buscar, this.criterio);
-    // console.log("Component mounted.");
   },
 };
 </script>
@@ -473,11 +479,10 @@ export default {
     position: absolute !important;
     background-color: #3c29297a !important;
   }
-
   .modal-content{
     width: 100% !important;
     position: absolute !important;
-    margin-top: -5% !important;
+    top: -45px !important;
   }
   .div-error{
     display: flex !important;

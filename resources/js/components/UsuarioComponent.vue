@@ -527,15 +527,14 @@ export default {
     position: absolute !important;
     background-color: #3c29297a !important;
   }
-
   .modal-content{
     width: 100% !important;
     position: absolute !important;
+    top: -45px !important;
   }
   .div-error{
     display: flex !important;
     justify-content: center !important;
-    /* margin-left: 28% !important; */
     margin: 1% 0 0 1% !important;
   }
   .text-error{  

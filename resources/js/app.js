@@ -4,6 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+const { default: axios } = require('axios');
+const { default: Echo } = require('laravel-echo');
+
 require('./bootstrap');
 
 window.Vue = require('vue').default;
@@ -26,6 +29,12 @@ Vue.component('cliente-component', require('./components/ClienteComponent.vue').
 Vue.component('proveedor-component', require('./components/ProveedorComponent.vue').default);
 Vue.component('rol-component', require('./components/RolComponent.vue').default);
 Vue.component('usuario-component', require('./components/UsuarioComponent.vue').default);
+Vue.component('ingreso-component', require('./components/IngresoComponent.vue').default);
+Vue.component('venta-component', require('./components/VentaComponent.vue').default);
+Vue.component('dashboard-component', require('./components/DashboardComponent.vue').default);
+Vue.component('reporte_ingreso-component', require('./components/ReporteIngresoComponent.vue').default);
+Vue.component('reporte_venta-component', require('./components/ReporteVentaComponent.vue').default);
+Vue.component('notificacion-component', require('./components/NotificacionComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,6 +45,23 @@ Vue.component('usuario-component', require('./components/UsuarioComponent.vue').
 const app = new Vue({
     el: '#app',
     data : {
-        menu: 7 //Valor defecto a cargar
-    }
+        menu:  0, //Valor defecto a cargar
+        notificaciones : []
+    },
+    created(){
+        let me = this;
+        axios.post('/notification/get').then(function(response){
+            me.notificaciones = response.data
+        }).catch(function (error) {  
+            console.log(error)
+        })
+
+        var userId = $('meta[name="userId"]').attr('content');
+        
+        Echo.private('App.Models.User.'+userId)
+            .notification((notification) => {
+                // me.notificaciones.unshift(notification);
+                console.log(notification.type)
+        });
+    }   
 });

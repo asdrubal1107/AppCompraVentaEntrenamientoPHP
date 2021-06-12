@@ -9,6 +9,8 @@
     <meta name="author" content="Incanatoit.com">
     <meta name="keyword" content="Sistema ventas Laravel Vue Js, Sistema compras Laravel Vue Js">
     <link rel="shortcut icon" href="vendors/img/favicon.png">
+    <!-- Id para canal de las notificaciones  -->
+    <meta name="userId" content="{{ Auth::check() ? Auth::user()->id : '' }}">
     <title>Sistema facturacion</title>
     <!-- Icons -->
     <link href="vendors/css/font-awesome.min.css" rel="stylesheet">
@@ -22,7 +24,15 @@
         @include('plantilla.header')
 
         <div class="app-body">
-            @include('plantilla.sidebar')
+            @if(Auth::check())
+                @if(Auth::user()->idRol == 1)
+                    @include('plantilla.sidebaradministrador')
+                @elseif(Auth::user()->idRol == 2)
+                    @include('plantilla.sidebarvendedor')
+                @elseif(Auth::user()->idRol == 3)
+                    @include('plantilla.sidebaralmacenero')
+                @endif
+            @endif
 
             <!-- Contenido Principal -->
             @yield('contenido')
@@ -46,6 +56,7 @@
     <script src="vendors/js/template.js"></script>
     <!-- Sweet alert -->
     <script src="vendors/js/sweetalert2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
 </body>
 
 </html>

@@ -9,12 +9,11 @@
       <div class="card">
         <div class="card-header">
           <i class="fa fa-align-justify"></i> Categorías
-          <button
-            type="button"
-            class="btn btn-secondary"
-            @click="AbrirModal('categoria', 'registrar')"
-          >
+          <button type="button" class="btn btn-secondary"  @click="AbrirModal('categoria', 'registrar')">
             <i class="icon-plus"></i>&nbsp;Nuevo
+          </button>
+          <button type="button" class="btn btn-info"  @click="CargarPDF()">
+            <i class="icon-doc"></i>&nbsp;Reporte
           </button>
         </div>
         <div class="card-body">
@@ -248,6 +247,10 @@ export default {
         .then(function () {
           // always executed
         });
+    },
+
+    CargarPDF(){
+      window.open('http://localhost:8000/categorias/listarPDF', 'blank');
     },
 
     CambiarPagina(page, buscar, criterio){
